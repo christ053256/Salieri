@@ -1,0 +1,197 @@
+/* Overall page container */
+.login-page-content {
+    display: flex;
+    background-color: #f0f8ff; /* Light mode background */
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background-image: url('hatsune_miku.jpg'); /* Replace with actual image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Dark Mode Styles */
+.login-page-content.dark-mode {
+    background-color: #333; /* Dark mode background */
+    color: white; /* Text color for dark mode */
+}
+
+/* Password container */
+.password-container {
+    position: relative;
+}
+
+.password-toggle-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.password-toggle-btn svg {
+    color: #6a5acd;
+}
+
+/* User account page container */
+.user-account-page {
+    background-color: #444;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Dark Mode for User Account Page */
+.user-account-page.dark-mode {
+    background-color: #444; /* Dark mode background for the form */
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1); /* Light shadow for dark mode */
+}
+
+/* Page Title */
+.page-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #6a5acd;
+    font-weight: bold;
+}
+
+/* Dark Mode Page Title */
+.page-title.dark-mode {
+    color: #fff; /* Light title color in dark mode */
+}
+
+/* Tabs for switching forms */
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Tab Styles */
+.tab {
+    background-color: #f0f8ff;
+    border: 2px solid #6a5acd;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Dark Mode for Tabs */
+.login-page-content.dark-mode .tab {
+    background-color: #333; /* Dark mode tab background */
+    border-color: #444; /* Darker border */
+    color: #fff; /* Light text for dark mode tabs */
+}
+
+.tab:hover {
+    background-color: #e6f1ff;
+}
+
+/* Dark Mode Active Tab */
+.tab.active {
+    background-color: #6a5acd;
+    color: white;
+    font-weight: bold;
+}
+
+/* Dark Mode Active Tab */
+.login-page-content.dark-mode .tab.active {
+    background-color: #5a4db8; /* Darker active tab */
+}
+
+/* Form container */
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Input group styling */
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+/* Input labels */
+.input-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #6a5acd;
+}
+
+/* Input Fields */
+.input-group input {
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    margin-top: 5px;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Focused Input Fields */
+.input-group input:focus {
+    border-color: #6a5acd;
+}
+
+/* Dark Mode Input Fields */
+.login-page-content.dark-mode .input-group input {
+    background-color: #555; /* Darker input background */
+    border-color: #444; /* Darker border */
+    color: #fff; /* Light text in inputs for dark mode */
+}
+
+/* Button Styles */
+.btn {
+    padding: 12px;
+    width: 107%;
+    background-color: #6a5acd;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Button Hover */
+.btn:hover {
+    background-color: #5a4db8;
+}
+
+/* Dark Mode Button */
+.login-page-content.dark-mode .btn {
+    background-color: #5a4db8; /* Darker button in dark mode */
+}
+
+/* Dark Mode Toggle Button */
+.dark-mode-toggle {
+    background-color: transparent;
+    color: #6a5acd;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: color 0.3s ease;
+}
+
+/* Dark Mode Toggle Button in Dark Mode */
+.login-page-content.dark-mode .dark-mode-toggle {
+    color: #fff; /* Light color in dark mode */
+}

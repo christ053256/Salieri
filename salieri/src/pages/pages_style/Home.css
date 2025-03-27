@@ -1,0 +1,360 @@
+/* Ensure body & html take full height */
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+/* Full-screen Background */
+.home {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+/* Video Background */
+.home .video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensure video stays behind the content */
+}
+
+.background-video {
+    object-fit: cover; /* Makes the video cover the entire screen */
+    width: 100%;
+    height: 100%;
+}
+
+/* Translucent overlay for a dreamy effect */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Adds a soft dark overlay */
+    z-index: 0;
+}
+
+/* Home Content Styling */
+.home-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    width: 90%;
+    max-width: 800px; /* Prevents excessive stretching */
+}
+
+/* Responsive Typography */
+.home-content h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.8);
+}
+
+.home-content p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Icons */
+.icons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Allows wrapping on small screens */
+}
+
+/* Tooltip (Chatbox) Styling */
+.chatbox {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.9);
+    color: black;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    white-space: nowrap;
+    z-index: 1000;
+    transform: translate(-50%, -100%); /* Center the tooltip above the icon */
+    top: var(--tooltip-y); /* Dynamically position using JS */
+    left: var(--tooltip-x);
+    transition: opacity 0.2s ease-in-out;
+}
+
+/* Icon wrapper */
+.icon-wrapper {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin: 10px;
+}
+
+/* Hover effect for icons */
+.icon-wrapper:hover svg {
+    color: #ffa95a;
+    transition: color 0.3s ease;
+}
+
+.icons svg {
+    color: white;
+    transition: transform 0.3s ease-in-out;
+}
+
+.icons svg:hover {
+    transform: scale(1.2);
+}
+
+/* Explore Button */
+.explore-btn {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid white;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.explore-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+}
+
+/* Responsive Navigation */
+.navigation-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 0;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Center navigation items and remove bullets */
+.navigation ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap; /* Allows responsiveness */
+}
+
+/* Style navigation links */
+.navigation a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect */
+.navigation a:hover {
+    color: #ffcc00;
+}
+
+/* 🔥 RESPONSIVE DESIGN: Adjusts layout for mobile screens */
+@media (max-width: 768px) {
+    .home-content h1 {
+        font-size: 2rem;
+    }
+
+    .home-content p {
+        font-size: 1rem;
+    }
+
+    .icons svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    .explore-btn {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+
+    .navigation ul {
+        gap: 15px;
+    }
+
+    .navigation a {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .home-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .home-content p {
+        font-size: 0.9rem;
+    }
+
+    .icons {
+        gap: 10px;
+    }
+
+    .icons svg {
+        width: 25px;
+        height: 25px;
+    }
+
+    .explore-btn {
+        font-size: 0.8rem;
+        padding: 8px 15px;
+    }
+
+    .navigation ul {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .navigation-content {
+        background: rgba(0, 0, 0, 0.4);
+    }
+}
+/* About Us Section */
+.about-us {
+    padding: 40px 20px;
+    background-color: #f5f5f5; /* Light gray background */
+    text-align: center;
+    color: #333;
+    opacity: 0; /* Initially invisible */
+    transform: translateY(50px); /* Start with a slight downward position */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  /* Animation class to trigger when element is visible */
+  .animate-about-us {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Move to original position */
+  }
+  
+  .about-us h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .about-us p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    line-height: 1.5;
+  }
+  
+  .about-us strong {
+    font-weight: bold;
+  }
+  
+  .about-us p:last-child {
+    margin-bottom: 0;
+  }
+/* Feedback Section */
+.feedback {
+    padding: 40px 20px;
+    background-color: #e0f7fa; /* Light blue background */
+    text-align: center;
+    color: #333;
+    opacity: 0; /* Initially invisible */
+    transform: translateY(50px); /* Start with a slight downward position */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  /* Animation class to trigger when element is visible */
+  .animate-feedback {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Move to original position */
+  }
+  
+  .feedback h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .feedback form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .feedback textarea {
+    width: 80%;
+    max-width: 500px;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    resize: none;
+  }
+  
+  .feedback button {
+    padding: 10px 20px;
+    background-color: #00796b;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .feedback button:hover {
+    background-color: #004d40;
+  }
+  
+  /* Rate Us Section */
+  .rate-us {
+    text-align: center;
+  }
+  
+  .rate-us p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .stars {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .star {
+    font-size: 2rem;
+    cursor: pointer;
+    color: #ccc; /* Default color for empty stars */
+    transition: color 0.3s ease;
+  }
+  
+  .star.filled {
+    color: #ffcc00; /* Gold color for filled stars */
+  }
+  
+  .star:hover {
+    color: #ffa95a; /* Highlight stars on hover */
+  }
+  
